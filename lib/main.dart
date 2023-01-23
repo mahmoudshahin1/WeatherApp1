@@ -1,6 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:project/data/datasource/remote_datasource.dart';
+import 'package:project/data/repositry/weather_reposaitry.dart';
+import 'package:project/domain/repositry/base_weather_rebositry.dart';
+import 'package:project/domain/usecase/get_weather_by_countryname.dart';
 
 void main() {
+  BaseReomteDataSource baseReomteDataSource = ReomteDataSource();
+BaseWeatherRebosatry baseWeatherRebosatry = WeatherRepositry(baseReomteDataSource);
+  GetWeatherByCountryName(baseWeatherRebosatry).execute('Egypt');
   runApp(const MyApp());
 }
 
